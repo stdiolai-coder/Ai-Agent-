@@ -9,9 +9,9 @@ load_dotenv()
 
 
 class Settings:
-    # --- Anthropic / KI ---
-    ANTHROPIC_API_KEY: str = os.getenv("ANTHROPIC_API_KEY", "")
-    AI_MODEL: str = os.getenv("AI_MODEL", "claude-sonnet-5")
+    # --- Google Gemini / KI (kostenlose Stufe) ---
+    GOOGLE_API_KEY: str = os.getenv("GOOGLE_API_KEY", "")
+    AI_MODEL: str = os.getenv("AI_MODEL", "gemini-2.0-flash")
 
     # --- Unternehmens-Kontext (wird in den System-Prompt eingebaut) ---
     COMPANY_NAME: str = os.getenv("COMPANY_NAME", "Mein Unternehmen")
@@ -38,7 +38,6 @@ class Settings:
     DATABASE_URL: str = os.getenv("DATABASE_URL", "sqlite:///./agent.db")
 
     # --- Sicherheitsgrenzen für vollautomatische Antworten ---
-    # Themen, bei denen die KI NICHT automatisch antworten, sondern eskalieren soll
     ESCALATION_KEYWORDS: list = [
         "beschwerde", "anwalt", "klage", "kündigung", "rechtlich",
         "rückerstattung", "erstattung", "stornierung",
@@ -46,3 +45,4 @@ class Settings:
 
 
 settings = Settings()
+
